@@ -43,8 +43,7 @@ public class TextEditor extends JFrame {
         file.add(Open);
         file.add(Save);
         file.addSeparator();
-        JButton button = new ImageButton("src/res/color.png");
-        button.setPreferredSize(new Dimension(16,16));
+        MenuButton button = new MenuButton(new ImageIcon("src/res/color.png"));
         menuBar.add(button);
 
 //        button.setIcon(new ImageIcon("src/res/color.png"));
