@@ -1,22 +1,21 @@
 package ru.gerasimov.components;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Scroll extends JScrollPane {
 
-    private final JEditorPane pane;
+    private final JTextArea pane;
     private final String path;
     private final boolean isOpened;
 
-    public Scroll(JEditorPane pane, String path, boolean isOpened){
+    public Scroll(JTextArea pane, String path, boolean isOpened){
         super(pane);
         this.pane = pane;
         this.path = path;
         this.isOpened = isOpened;
     }
 
-    public JEditorPane getTextArea(){
+    public JTextArea getTextArea(){
         return pane;
     }
 
