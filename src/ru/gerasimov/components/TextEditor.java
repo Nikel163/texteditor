@@ -25,7 +25,7 @@ public class TextEditor extends JFrame {
 
     public TextEditor() {
         setTitle("EXTREME TEXT EDITOR");
-        setSize(800, 600);
+        setSize(760, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -70,6 +70,7 @@ public class TextEditor extends JFrame {
         file.add(Save);
         file.addSeparator();
 
+        //EDIT MENU ITEMS
         JMenu edit = new JMenu("Правка");
 
         JMenuItem cut = new JMenuItem(new DefaultEditorKit.CutAction());
@@ -78,16 +79,25 @@ public class TextEditor extends JFrame {
         copy.setText("Копировать");
         JMenuItem paste = new JMenuItem(new DefaultEditorKit.PasteAction());
         paste.setText("Вставить");
-
+        JMenuItem search = new JMenuItem("Поиск");
+        search.addActionListener(new SearchListener(tabs));
         edit.add(cut);
         edit.add(copy);
         edit.add(paste);
-
-        popup.add(cut);
-        popup.add(copy);
-        popup.add(paste);
+        edit.add(search);
 
         menuBar.add(edit);
+
+        //POPUP MENU ITEMS
+        JMenuItem popupCut = new JMenuItem(new DefaultEditorKit.CutAction());
+        popupCut.setText("Вырезать");
+        JMenuItem popupCopy = new JMenuItem(new DefaultEditorKit.CopyAction());
+        popupCopy.setText("Копировать");
+        JMenuItem popupPaste = new JMenuItem(new DefaultEditorKit.PasteAction());
+        popupPaste.setText("Вставить");
+        popup.add(popupCut);
+        popup.add(popupCopy);
+        popup.add(popupPaste);
 
         //FONTS LIST
         FontsComboBox fontList = new FontsComboBox();
@@ -95,13 +105,13 @@ public class TextEditor extends JFrame {
         menuBar.add(fontList);
 
         //FONT SIZE
-        JSpinner fontSize = new JSpinner(new SpinnerNumberModel(20,1,72,1));
+        JSpinner fontSize = new JSpinner(new SpinnerNumberModel(20,1,200,1));
         fontSize.addChangeListener(new ChangeFontSizeListener((Scroll)tabs.getSelectedComponent()));
         menuBar.add(fontSize);
         menuBar.add(new JSeparator());
 
         //FONT STYLE
-        JToggleButton bold = new JToggleButton(new ImageIcon("src/res/bold16.png"));
+        JToggleButton bold = new JToggleButton(new ImageIcon("res/bold.png"));
         bold.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -126,7 +136,7 @@ public class TextEditor extends JFrame {
                 scroll.getTextArea().setFont(newFont);
             }
         });
-        JToggleButton italic = new JToggleButton(new ImageIcon("src/res/italic16.png"));
+        JToggleButton italic = new JToggleButton(new ImageIcon("res/italic.png"));
         italic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -157,7 +167,7 @@ public class TextEditor extends JFrame {
         menuBar.add(italic);
         menuBar.add(new JSeparator());
         //BUTTONS FOR CHANGING COLORS
-        MenuButton changeTextColor = new MenuButton(new ImageIcon("src/res/color.png"));
+        MenuButton changeTextColor = new MenuButton(new ImageIcon("res/color.png"));
         changeTextColor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -168,7 +178,7 @@ public class TextEditor extends JFrame {
         });
         changeTextColor.setText("Цвет текста");
 
-        MenuButton changeBackgroundColor = new MenuButton(new ImageIcon("src/res/color.png"));
+        MenuButton changeBackgroundColor = new MenuButton(new ImageIcon("res/color.png"));
         changeBackgroundColor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
