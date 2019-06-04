@@ -12,6 +12,7 @@ public class FontsComboBox extends JComboBox {
         super(fonts);
         setSize(width, height);
         setEditable(false);
+        setSelectedItem("Liberation Mono");
     }
 
 }

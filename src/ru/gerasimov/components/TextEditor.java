@@ -111,7 +111,7 @@ public class TextEditor extends JFrame {
         menuBar.add(new JSeparator());
 
         //FONT STYLE
-        JToggleButton bold = new JToggleButton(new ImageIcon("res/bold.png"));
+        JToggleButton bold = new JToggleButton(new ImageIcon("src/res/bold.png"));
         bold.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,7 +136,7 @@ public class TextEditor extends JFrame {
                 scroll.getTextArea().setFont(newFont);
             }
         });
-        JToggleButton italic = new JToggleButton(new ImageIcon("res/italic.png"));
+        JToggleButton italic = new JToggleButton(new ImageIcon("src/res/italic.png"));
         italic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -167,7 +167,7 @@ public class TextEditor extends JFrame {
         menuBar.add(italic);
         menuBar.add(new JSeparator());
         //BUTTONS FOR CHANGING COLORS
-        MenuButton changeTextColor = new MenuButton(new ImageIcon("res/color.png"));
+        MenuButton changeTextColor = new MenuButton(new ImageIcon("src/res/color.png"));
         changeTextColor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -178,7 +178,7 @@ public class TextEditor extends JFrame {
         });
         changeTextColor.setText("Цвет текста");
 
-        MenuButton changeBackgroundColor = new MenuButton(new ImageIcon("res/color.png"));
+        MenuButton changeBackgroundColor = new MenuButton(new ImageIcon("src/res/color.png"));
         changeBackgroundColor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
